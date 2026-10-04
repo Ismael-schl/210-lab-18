@@ -69,8 +69,23 @@ class Movie {
             delete temp;
         }
         head = nullptr;
+        
+        title = source.title;
 
-        Node
+        Node *tail = nullptr;
+        Node* cur = source.head;
+        while (cur != nullptr) {
+            Node* n = new Node;
+            n->rating = cur->rating;
+            n->comment = cur->comment;
+            n->next = nullptr;
+            if (head == nullptr) {
+                head = n;
+            }
+            else {
+                tail->next = n;
+            }
+        }
 
     }
     void addReview(ifstream &fin) {
