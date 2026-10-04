@@ -9,6 +9,7 @@
 using namespace std;
 
 const int SIZE = 3;
+const int numMovies = 4;
 
 //This code outlines what every node in the list will hold and point to.
 struct Node {
@@ -22,6 +23,17 @@ class Movie {
     string title;
     Node *head = nullptr;
     public:
+    Movie(string t) {
+        title = t;
+    }
+    ~Movie() {
+        Node* current = head;
+        while (current != nullptr) {
+            Node* temp = current;
+            current = current->next;
+            delete temp;
+        }
+    }
     void addReview(ifstream &fin) {
         for (int i = 0; i < SIZE; i++) {
             string tempString;
@@ -65,6 +77,6 @@ int main() {
     srand(time(0));
     cout << fixed << setprecision(1);
     vector<Movie> movies;
-    
+    Movie 
 
 }
