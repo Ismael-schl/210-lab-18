@@ -103,8 +103,18 @@ int main() {
     vector<Movie> movies;
     Movie a("Interstellar");
     a.addReview(fin);
+    movies.push_back(a);
     Movie b("Dune");
     b.addReview(fin);
-
+     movies.push_back(b);
+    Movie c("Jungle Book");
+    c.addReview(fin);
+     movies.push_back(c);
+    Movie d("The Dark Night");
+    d.addReview(fin);
+     movies.push_back(d);
+    for (int i = 0; i < movies.size(); i++) {
+        movies[i].output();
+    }
 
 }
