@@ -47,11 +47,11 @@ class Movie {
             }
         }
     }
-    void output(Movie* movie) {
+    void output() {
         cout << "Movie Title: " << title << endl;
         double sum = 0.0;
+        Node* current = head;
         for (int i = 0; i < SIZE; i++) {
-            Node* current = head;
             cout << "    > Review #" << (i+1) << ": " << current->rating  << ": " << current->comment << endl;
             sum += current->rating;
             current = current->next;
