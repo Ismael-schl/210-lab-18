@@ -4,6 +4,7 @@
 #include <vector>
 #include <random>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -27,7 +28,13 @@ class Movie {
             cerr << "Error: cannot open input file." << endl;
         }
         for (int i = 0; i < SIZE; i++) {
-            float tempRating = 
+            int whole = rand() % 5+ 1;
+            int tenths = rand() % 10;
+            if (whole == 5) {
+                tenths = 0;
+            }
+            double tempRating = whole + tenths / 10.0
+            
         }
     }
     void output(Node *head) {
@@ -37,6 +44,7 @@ class Movie {
 };
 
 int main() {
+    srand(time(0);)
     vector<Movie> movies;
 
 
