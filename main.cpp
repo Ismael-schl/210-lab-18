@@ -61,8 +61,10 @@ class Movie {
 };
 
 int main() {
-    srand(time(0);)
+    ifstream fin("input.txt");
+    srand(time(0));
+    cout << fixed << setprecision(1);
     vector<Movie> movies;
-
+    
 
 }
