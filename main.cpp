@@ -57,7 +57,7 @@ class Movie {
             cur = cur->next;
         }
     }
-    
+
     void addReview(ifstream &fin) {
         for (int i = 0; i < SIZE; i++) {
             string tempString;
@@ -101,6 +101,10 @@ int main() {
     srand(time(0));
     cout << fixed << setprecision(1);
     vector<Movie> movies;
-    Movie 
+    Movie a("Interstellar");
+    a.addReview(fin);
+    Movie b("Dune");
+    b.addReview(fin);
+
 
 }
