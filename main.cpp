@@ -8,13 +8,19 @@ using namespace std;
 struct Node {
     double rating;
     string comment;
-    Node *next;
+    Node *next = nullptr;
 };
 
 class Movie {
     private: 
     string title;
     Node *head = nullptr;
-    public
+    public:
+    void addReview(Node *head) {
+
+    }
+    void output(Node *head) {
+        
+    }
     
 };
