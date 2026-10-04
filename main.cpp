@@ -9,7 +9,6 @@
 using namespace std;
 
 const int SIZE = 3;
-const int numMovies = 4;
 
 //This code outlines what every node in the list will hold and point to.
 struct Node {
@@ -57,7 +56,8 @@ class Movie {
             cur = cur->next;
         }
     }
-
+    //Copy assingment operator
+    Movie& 
     void addReview(ifstream &fin) {
         for (int i = 0; i < SIZE; i++) {
             string tempString;
@@ -92,7 +92,7 @@ class Movie {
             sum += current->rating;
             current = current->next;
         }
-        cout << "    > Average: " <<  sum/SIZE << endl;
+        cout << "    > Average: " <<  sum/SIZE << endl << endl;
     }
 };
 
