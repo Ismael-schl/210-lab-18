@@ -5,6 +5,8 @@
 #include <random>
 #include <fstream>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -17,6 +19,7 @@ struct Node {
     Node *next = nullptr;
 };
 
+//Describes a class Movie that each have a title, and a linked list of ratings and comments on the movies.
 class Movie {
     private: 
     string title;
@@ -56,7 +59,7 @@ class Movie {
             cur = cur->next;
         }
     }
-    //Copy assingment operator
+    //Copy assignment operator
     Movie& operator=(const Movie& source) {
         if (this == &source) {
             return *this;
@@ -85,9 +88,12 @@ class Movie {
             else {
                 tail->next = n;
             }
+            tail = n;
+            cur = cur->next;
         }
-
+        return *this;
     }
+    //This function reads an input file and assigns a random rating to every inputted line of review. It places these values in a linked list.
     void addReview(ifstream &fin) {
         for (int i = 0; i < SIZE; i++) {
             string tempString;
@@ -113,6 +119,7 @@ class Movie {
             }
         }
     }
+    //This function outputs and averages every movie rating for each respective movie via a forloop and some output formatting.
     void output() {
         cout << "Movie Title: " << title << endl;
         double sum = 0.0;
@@ -126,8 +133,14 @@ class Movie {
     }
 };
 
+//The main functiion initializes a container vector to hold movies, then accepts names for 4 movies.
+//It uses the classes member functions to populate our information on the movies and output the ratings to 1 decimal place.
 int main() {
     ifstream fin("input.txt");
+    if (!fin) {
+        cerr << "Error: cannot open input file." << endl;
+        return 1;
+    }
     srand(time(0));
     cout << fixed << setprecision(1);
     vector<Movie> movies;
@@ -140,11 +153,11 @@ int main() {
     Movie c("Jungle Book");
     c.addReview(fin);
      movies.push_back(c);
-    Movie d("The Dark Night");
+    Movie d("The Dark Knight");
     d.addReview(fin);
      movies.push_back(d);
     for (int i = 0; i < movies.size(); i++) {
         movies[i].output();
     }
-
+    return 0;
 }
