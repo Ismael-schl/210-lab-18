@@ -8,7 +8,7 @@
 
 using namespace std;
 
-const int SIZE = 4;
+const int SIZE = 3;
 
 //This code outlines what every node in the list will hold and point to.
 struct Node {
@@ -22,11 +22,7 @@ class Movie {
     string title;
     Node *head = nullptr;
     public:
-    void addReview(Node *&head) {
-        ifstream fin("input.txt");
-        if (!fin) {
-            cerr << "Error: cannot open input file." << endl;
-        }
+    void addReview(ifstream &fin) {
         for (int i = 0; i < SIZE; i++) {
             string tempString;
             int whole = rand() % 5+ 1;
@@ -51,8 +47,13 @@ class Movie {
             }
         }
     }
-    void output(Node *head) {
-
+    void output(Movie* movie) {
+        cout << "Movie Title: " << title << endl;
+        for (int i = 0; i < SIZE; i++) {
+            Node* current = head;
+            cout << "    > Review #" << (i+1) << ": " << current->rating  << ": " << current->comment << endl;
+            
+        }
     }
     
 };
