@@ -23,9 +23,11 @@ class Movie {
     string title;
     Node *head = nullptr;
     public:
+    //constructor
     Movie(string t) {
         title = t;
     }
+    //destructor
     ~Movie() {
         Node* current = head;
         while (current != nullptr) {
@@ -34,6 +36,28 @@ class Movie {
             delete temp;
         }
     }
+    //Copy constructor
+    Movie(const Movie& source) {
+        title = source.title;
+        head = nullptr;
+        Node* tail = nullptr;
+        Node* cur = source.head;
+        while(cur != nullptr) {
+            Node* n = new Node;
+            n->rating = cur->rating;
+            n->comment = cur->comment;
+            n->next = nullptr;
+            if (head == nullptr) {
+                head = n;
+            }
+            else {
+                tail->next = n;
+            }
+            tail = n;
+            cur = cur->next;
+        }
+    }
+    
     void addReview(ifstream &fin) {
         for (int i = 0; i < SIZE; i++) {
             string tempString;
