@@ -57,7 +57,22 @@ class Movie {
         }
     }
     //Copy assingment operator
-    Movie& 
+    Movie& operator=(const Movie& source) {
+        if (this == &source) {
+            return *this;
+        }
+
+        Node* current = head;
+        while (current != nullptr) {
+            Node* temp = current;
+            current = current->next;
+            delete temp;
+        }
+        head = nullptr;
+
+        Node
+
+    }
     void addReview(ifstream &fin) {
         for (int i = 0; i < SIZE; i++) {
             string tempString;
